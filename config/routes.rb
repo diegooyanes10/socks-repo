@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :socks
-   # I don't really understand all the routes it makes automatically
-
+  resources :socks do
+    resources :matches
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
  # I think this is just a note from Rails about how to make routes.
 

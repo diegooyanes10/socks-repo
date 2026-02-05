@@ -1,5 +1,9 @@
 module SocksHelper
+    # This helper returns the CSS class "matched" if the sock is already matched.
+    def is_matched_class sock
+        if sock.matched?
+            "matched"
+        end
+    end
 end
 
-# I think this file is for helper methods for socks views
-# I don't know how this works and I don't know how to write it yet

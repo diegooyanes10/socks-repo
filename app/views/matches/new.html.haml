@@ -1,0 +1,8 @@
+%h1 What sock do you want to match #{@sock.name} with?
+
+= form_with(model: @match, url: sock_matches_path(sock_id: @sock.id)) do |f|
+  %div
+    = f.label :match_id
+    = f.select :match_id, socks_options
+  %div
+    =f.submit "Finalize Match"
