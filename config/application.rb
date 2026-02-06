@@ -17,6 +17,8 @@ require "action_view/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require "devise"
+require "devise/orm/active_record"
 
 module Socks
   class Application < Rails::Application
