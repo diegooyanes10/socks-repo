@@ -8,6 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+user = User.find_or_initialize_by({email: "yanesd@grace.edu"})
+user password = "password"
+user.save!
+
 [
   {
     id: 1,
@@ -84,6 +88,7 @@
 ].each do |sock_params|
   id = sock_params.delete(:id)
   sock = Sock.new
+  sock.owner = user
   if id
     sock = Sock.find_or_initialize_by(id: id)
   end
