@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :installs
   resources :socks do
     resources :matches
+    resources :proposed_matches
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
  # I think this is just a note from Rails about how to make routes.

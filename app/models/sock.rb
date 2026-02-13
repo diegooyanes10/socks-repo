@@ -11,6 +11,18 @@ class Sock < ApplicationRecord
            foreign_key: :sock_2_id,
            dependent: :destroy
 
+   # A sock can send many proposed matches.
+  has_many :proposed_matches_as_sock_1,
+           class_name: "ProposedMatch",
+           foreign_key: :sock_1_id,
+           dependent: :destroy
+
+  # A sock can receive many proposed matches.
+  has_many :proposed_matches_as_sock_2,
+           class_name: "ProposedMatch",
+           foreign_key: :sock_2_id,
+           dependent: :destroy
+
   belongs_to :owner, class_name: "User", foreign_key: :user_id
     
   # Finds the match where this sock is included.
