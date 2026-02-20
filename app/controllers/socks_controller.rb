@@ -1,3 +1,5 @@
+# Use of GET, SET, and POST indicate the controller's data management responsibilities. Might be using API calls, or at least the same terms.
+
 class SocksController < ApplicationController
   before_action :set_sock, only: %i[ show edit update destroy ]
 
@@ -22,6 +24,7 @@ class SocksController < ApplicationController
   # POST /socks or /socks.json
   def create
     @sock = Sock.new(sock_params)
+    @sock.owner = current_user
 
     respond_to do |format|
       if @sock.save
@@ -52,7 +55,7 @@ class SocksController < ApplicationController
     @sock.destroy!
 
     respond_to do |format|
-      format.html { redirect_to socks_path, notice: "Sock was successfully destroyed.", status: :see_other }
+      format.html { redirect_to app_path, notice: "Sock was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
@@ -68,10 +71,3 @@ class SocksController < ApplicationController
       params.expect(sock: [ :name, :description, :gender, :age, :height, :color ])
     end
 end
-
-=begin
-I think this file connects the model and the views
-I don't understand how respond_to and format.html work
-I also don't understand set_sock and sock_params fully
-=end
-

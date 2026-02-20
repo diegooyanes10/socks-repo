@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :socks do
+
+  get "app", to: "dashboard#welcome"
+
+  resources :socks, except: :index do
     resources :matches
     resources :proposals
   end

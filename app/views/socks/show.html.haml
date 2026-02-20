@@ -1,14 +1,12 @@
-%p{style: "color: green"}= notice
-
-= render @sock
-
+.sock-show
+  = render @sock
 %div
   = link_to "Edit this sock", edit_sock_path(@sock)
-  |
-  = link_to "Back to socks", socks_path
-  |
+
   = link_to "You can propose a match!", new_sock_proposal_path(@sock)
-  |
+  
   = link_to "Got a Match!", new_sock_match_path(@sock)
-  |
+
+  = link_to "Back to dashboard", app_path
+  
   = button_to "Destroy this sock", @sock, method: :delete

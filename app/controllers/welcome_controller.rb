@@ -11,7 +11,7 @@ private
 
   def redirect_signed_in_users
     if current_user
-      redirect_to socks_path
+      redirect_to app_path
     end
   end
 end
