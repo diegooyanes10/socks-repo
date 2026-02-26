@@ -1,5 +1,12 @@
 - content_for :title, "Dashboard"
 
+- if @proposals.any?
+  %div
+    %h4 Proposals
+    - @proposals.each do |proposal|
+      = render proposal
+      = render "proposals/form", proposal: proposal
+
 %h1 Dashboard
 
 %div{id: "socks"}

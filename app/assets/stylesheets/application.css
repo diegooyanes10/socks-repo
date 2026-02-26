@@ -65,3 +65,7 @@ a {
 .sock.matched {
   background-color: rgb(86, 189, 86);
 }
+
+button {
+  cursor: pointer;
+}
